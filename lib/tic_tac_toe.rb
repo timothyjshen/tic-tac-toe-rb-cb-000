@@ -21,7 +21,11 @@ def input_to_index(input)
   input.to_i - 1
 end
 
+<<<<<<< HEAD
 def move(board, index, position)
+=======
+def move(board, index, position = "X")
+>>>>>>> 46faf3256f9679ec0d73bd478fd8a6e399b8ef3d
   board[index] = position
 end
 
@@ -52,8 +56,12 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
+<<<<<<< HEAD
     position = current_player(board)
     move(board, index, position)
+=======
+    move(board, index)
+>>>>>>> 46faf3256f9679ec0d73bd478fd8a6e399b8ef3d
     display_board(board)
   else
     turn(board)
@@ -71,6 +79,17 @@ def turn_count(board)
   turn
 end
 
+<<<<<<< HEAD
+=======
+def play(board)
+  count = turn_count(board)
+  while count < 9
+    turn(board)
+    count +=1
+  end
+end
+
+>>>>>>> 46faf3256f9679ec0d73bd478fd8a6e399b8ef3d
 def current_player(board)
   if turn_count(board) % 2 == 0
     return "X"
@@ -98,11 +117,19 @@ def full?(board)
 end
 
 def draw?(board)
+<<<<<<< HEAD
   if won?(board) != nil
     return false
   elsif full?(board) == true
     return true
   else
+=======
+  if won?(board) == nil && full?(board) == true
+    return true
+  elsif won?(board) == nil && full?(board) == false
+    return false
+  elsif won?(board) == true
+>>>>>>> 46faf3256f9679ec0d73bd478fd8a6e399b8ef3d
     return false
   end
 end
@@ -124,6 +151,7 @@ def winner(board)
   end
 end
 
+<<<<<<< HEAD
 
 def play(board)
   while over?(board) == false
@@ -139,3 +167,6 @@ end
 # board = [" "," "," "," "," "," "," "," "," "]
 # board = [" "," "," ","X","X","X"," "," "," "]
 # board = ["X","X","X","X","X","X","X","X","X"]
+=======
+# board = [" "," "," "," "," "," "," "," "," "]
+>>>>>>> 46faf3256f9679ec0d73bd478fd8a6e399b8ef3d
